@@ -1,0 +1,24 @@
+{
+  "name": "pure-js-app",
+  "version": "1.0.0",
+  "description": "Pure JavaScript Excel Application",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shortytapki/pure-js-app.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "excel"
+  ],
+  "author": "Vladimir Vinogradov <v.v.vinogradov99@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shortytapki/pure-js-app/issues"
+  },
+  "homepage": "https://github.com/shortytapki/pure-js-app#readme"
+}
