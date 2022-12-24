@@ -1,0 +1,20 @@
+@use 'variables' as v;
+@use 'mixins';
+
+.excel__toolbar {
+  position: absolute;
+  height: v.$toolbar-height;
+  left: 0;
+  right: 0;
+  top: v.$header-height;
+  width: 100%;
+  border-top: 1px solid v.$border-color;
+  border-bottom: 1px solid v.$border-color;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+
+  .button {
+    @include mixins.button();
+  }
+}

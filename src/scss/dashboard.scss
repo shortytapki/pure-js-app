@@ -1,0 +1,90 @@
+@use 'variables' as v;
+
+.db {
+  &__header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: v.$db-header-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 2px 5px 2px rgba(60, 64, 67, 0.15);
+    z-index: 1000;
+  }
+
+  &__new {
+    margin-top: v.$db-header-height;
+    padding: 1.5rem;
+    background: #dadcd0;
+  }
+
+  &__view {
+    max-width: 100rem;
+    margin: 0 auto;
+  }
+
+  &__create {
+    width: 16rem;
+    height: 16rem;
+    background: #fff;
+    border-radius: 0.4rem;
+    border: 0.1rem solid #dadcd0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+      cursor: pointer;
+      color: green;
+      border-color: green;
+    }
+  }
+
+  &__table {
+    padding: 1.6rem;
+  }
+
+  &__list-header {
+    display: flex;
+    justify-content: space-between;
+    color: #202124;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding: 0 1.2rem;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.4rem 1.2rem 1.6rem;
+    margin-bottom: 1rem;
+
+    &:hover {
+      background: #e6f4ea;
+      border-radius: 2.5rem cursor pointer;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

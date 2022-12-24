@@ -1,6 +1,6 @@
 const path = require('path');
 
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -10,7 +10,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const fromCopyPattern = path.resolve(__dirname, 'src/favicon.ico');
 const toCopyPattern = path.resolve(__dirname, 'dist');
 
-const filename = (ext) => isProd ? `bundle.[hash].${ext}`: `bundle.${ext}`;
+const filename = (ext) => (isProd ? `bundle.[hash].${ext}` : `bundle.${ext}`);
 const jsLoaders = () => {
   const loaders = [
     {
@@ -21,9 +21,7 @@ const jsLoaders = () => {
     },
   ];
 
-  if (!isProd) {
-    loaders.push('eslint-loader');
-  }
+  if (!isProd) loaders.push('eslint-loader');
 
   return loaders;
 };
@@ -34,6 +32,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: ['@babel/polyfill', './index.js'],
+
   output: {
     filename: filename('js'),
     path: path.resolve(__dirname, 'dist'),
@@ -46,10 +45,15 @@ module.exports = {
       '@core': path.resolve(__dirname, 'src/core'),
     },
   },
-  devtool: isProd? false: 'source-map',
+  devtool: isProd ? false : 'source-map',
   devServer: {
     port: 3000,
-    hot: !isProd,
+    watchFiles: [
+      path.resolve(__dirname, 'src/index.html'),
+      path.resolve(__dirname, 'src'),
+    ],
+    hot: true,
+    liveReload: false,
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -61,9 +65,7 @@ module.exports = {
       },
     }),
     new CopyPlugin({
-      patterns: [
-        {from: fromCopyPattern, to: toCopyPattern},
-      ],
+      patterns: [{ from: fromCopyPattern, to: toCopyPattern }],
     }),
     new MiniCssExtractPlugin({
       filename: filename('css'),
@@ -73,17 +75,7 @@ module.exports = {
     rules: [
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: !isProd,
-              reloadAll: true,
-            },
-          },
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.m?js$/,
