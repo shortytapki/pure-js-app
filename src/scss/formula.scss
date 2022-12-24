@@ -1,0 +1,31 @@
+@use 'variables' as v;
+
+.excel__formula {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: v.$header-height + v.$toolbar-height;
+  height: v.$formula-height;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid v.$border-color;
+
+  .info {
+    font-size: 1.8rem;
+    font-style: italic;
+    text-align: center;
+    min-width: v.$row-num-width;
+    border-right: 1px solid v.$border-color;
+    height: 100%;
+  }
+
+  .input {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    color: #000;
+  }
+}

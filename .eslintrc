@@ -6,10 +6,7 @@
     "node": true
   },
   "rules": {
-
+    "object-curly-spacing": "off"
   },
-  "extends": [
-    "eslint:recommended", "google"
-  ]
-
+  "extends": ["eslint:recommended", "google"]
 }
